@@ -3,6 +3,7 @@ import ClosedLockIcon from "../icons/ClosedLockIcon";
 import {Provider} from "@supabase/supabase-js";
 import {supabase} from "../supabase_init";
 import {LOGO_IMG} from "../constants/assets-constants";
+import FacebookIcon from "../icons/FacebookIcon";
 
 async function signInProviderHandler(provider: Provider) {
     await supabase.auth.signInWithOAuth({ provider })
@@ -101,14 +102,14 @@ export default function SigninPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-x-4">
-                        <button onClick={() => signInProviderHandler('google')} className="btn-primary px-0 btn-bouncy flex justify-center items-center bg-blue-400 hover:bg-blue-700 focus:ring-blue-700">
+                        <button onClick={() => signInProviderHandler('google')} className="btn-primary btn-bouncy flex justify-center items-center bg-blue-500 hover:bg-blue-700 focus:ring-blue-800">
                             <GoogleIcon className="mr-2 w-5 h-5" />
                             <span className="sr-only">Continue with</span> Google
                         </button>
-                        {/*<button onClick={() => signInWithProvider(facebookProvider)} className="bg-black hover:bg-gray-700 flex justify-center btn-bouncy btn-primary px-0 py-2 hover:ring-slate-700 focus:ring-slate-700 border border-gray-700">*/}
-                        {/*    <BsFacebook size={23} className="mr-2" />*/}
-                        {/*    <span className="sr-only">Continue with</span> Facebook*/}
-                        {/*</button>*/}
+                        <button onClick={() => signInProviderHandler('facebook')} className="bg-black hover:bg-gray-700 flex justify-center items-center btn-bouncy btn-primary hover:ring-slate-700 focus:ring-slate-700 border-gray-700">
+                            <FacebookIcon className="mr-2 w-6 h-6" />
+                            <span className="sr-only">Continue with</span> Facebook
+                        </button>
                     </div>
                 </div>
 
