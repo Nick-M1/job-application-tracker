@@ -9,11 +9,12 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={<Layout/>} errorElement={<ErrorPage/>}>
             <Route index lazy={() => import("./routes/HomePageRoute")}/>
-            <Route path='/newapplication' lazy={() => import("./routes/ApplicationFormNewRoute")}/>
 
+            <Route path='/application' lazy={() => import("./routes/ApplicationsListRoute")}/>
             <Route path='/application/:application_id' lazy={() => import("./routes/ApplicationSingleRoute")}/>
             <Route path='/application/:application_id/edit' lazy={() => import("./routes/ApplicationFormEditRoute")}/>
 
+            <Route path='/newapplication' lazy={() => import("./routes/ApplicationFormNewRoute")}/>
             <Route path='/company/:companyname' lazy={() => import("./routes/CompanyRoute")}/>
 
             <Route path='/templates' lazy={() => import("./routes/TemplatesRoute")}/>

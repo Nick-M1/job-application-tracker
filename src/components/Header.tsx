@@ -19,7 +19,7 @@ export default function Header({ session }: Props) {
 
             <div className='hidden md:flex space-x-8'>
                 <NavLink
-                    to='/'
+                    to='/application'
                     className={({isActive}) => isActive ? 'text-blue-500' : 'text-white'}
                 >
                     APPLICATIONS

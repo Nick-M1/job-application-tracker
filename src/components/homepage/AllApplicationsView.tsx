@@ -1,4 +1,4 @@
-import {AppliactionDataLoaderReturnType} from "../../routes/HomePageRoute";
+import {AppliactionDataLoaderReturnType} from "../../routes/ApplicationsListRoute";
 import ApplicationListItem from "./ApplicationListItem";
 import {Await, Link, useSearchParams} from "react-router-dom";
 import PlusIcon from "../../icons/PlusIcon";

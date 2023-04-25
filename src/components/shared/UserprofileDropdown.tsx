@@ -31,7 +31,7 @@ export default function UserprofileDropdown({ session }: Props) {
     }
 
     const userNavigation = [
-        { isButton: false, name: "My Applications",  to: `/`,       icon: HomeIcon },
+        { isButton: false, name: "My Applications",  to: `/application`,  icon: HomeIcon },
         { isButton: false, name: "Calender",  to: `/calender`,      icon: CalenderIcon },
         { isButton: false, name: "Templates",  to: `/templates`,    icon: DocumentTextIcon },
         { isButton: true,  name: "Logout", func: () => setLogoutPopup(true),  icon: ArrowRightOnRectangleIcon },

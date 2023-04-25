@@ -5,8 +5,14 @@ import {supabase} from "../supabase_init";
 import {LOGO_IMG} from "../constants/assets-constants";
 import FacebookIcon from "../icons/FacebookIcon";
 
+
 async function signInProviderHandler(provider: Provider) {
-    await supabase.auth.signInWithOAuth({ provider })
+    await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+            redirectTo: import.meta.env.VITE_HOSTURL!
+        }
+    })
 }
 
 export default function SigninPage() {

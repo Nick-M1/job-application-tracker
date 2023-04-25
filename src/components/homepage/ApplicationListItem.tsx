@@ -1,4 +1,4 @@
-import {AppliactionDataLoaderReturnType} from "../../routes/HomePageRoute";
+import {AppliactionDataLoaderReturnType} from "../../routes/ApplicationsListRoute";
 import {Await, Link} from "react-router-dom";
 import {Suspense} from "react";
 import PlaceholderImageIcon from "../../icons/PlaceholderImageIcon";
