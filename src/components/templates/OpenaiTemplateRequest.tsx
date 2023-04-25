@@ -97,7 +97,7 @@ export default function OpenaiTemplateRequest({ openaiKey }: Props) {
                         <option value='application email' className='text-gray-600'>Application Email</option>
                     </select>
 
-                    <button type='submit' className='btn-primary max-w-md mx-auto'>GENERATE TEMPLATE</button>
+                    <button type='submit' className='button-teal px-9 max-w-md mx-auto'>GENERATE TEMPLATE</button>
                 </form>
             ) : (
                 <div className='bg-white/10 p-3 sm:m-1 rounded-lg shadow-2xl drop-shadow-2xl'>

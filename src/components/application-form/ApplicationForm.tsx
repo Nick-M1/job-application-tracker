@@ -123,8 +123,8 @@ export default function ApplicationForm({ initialFormState, initialNumberOfStage
                 ))}
 
                 <div className='flex space-x-2 border-t pt-5 border-neutral-600' id='application-form-bottom'>
-                    <button type='button' className='btn-primary' onClick={addNewStage}>NEW STAGE</button>
-                    <button type='submit' className='btn-primary'>SUBMIT</button>
+                    <button type='button' className='button-white px-8' onClick={addNewStage}>NEW STAGE</button>
+                    <button type='submit' className='button-orange px-8'>SUBMIT</button>
                 </div>
 
             </form>

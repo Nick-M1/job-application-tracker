@@ -27,7 +27,7 @@ export default function OpenaiKeyInput() {
             <form onSubmit={onSubmitHandler} className='flex flex-col justify-center'>
                 <label className='text-left max-w-md mx-auto text-lg'>Enter Openai API key:</label>
                 <input type='text' name='openai-key' id='openaiKey' placeholder='Api key...' className=' input-primary-valid max-w-md mx-auto mb-4'/>
-                <button type='submit' className='btn-primary max-w-md mx-auto'>ENTER</button>
+                <button type='submit' className='button-teal px-9 max-w-md mx-auto'>ENTER</button>
             </form>
         </div>
     )

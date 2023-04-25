@@ -27,7 +27,7 @@ export default function ApplicationSingle({ application, companyimage }: Props) 
                         <Link to={`/company/${application.company_name}`} className='capitalize text-xl font-semibold underline text-blue-300/80 hover:text-blue-500/80 active:text-blue-600/80 smooth-transition'>{ application.company_name }</Link>
                         <h3 className='mt-1 italic text-sm text-gray-400'>Updated: { application.created_at.split('T')[0] }</h3>
                     </div>
-                    <Link to='edit' className='btn-primary flex h-12'>
+                    <Link to='edit' className='button-pink px-8 flex h-12'>
                         <EditIcon className='w-7 mr-1'/> Edit
                     </Link>
                 </div>

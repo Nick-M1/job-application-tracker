@@ -17,7 +17,7 @@ export default function Dropdown({ title, activeOption, options }: Props) {
         <div className="z-10">
             <Menu as="div" className="relative inline-block text-left">
                 <div>
-                    <Menu.Button className="inline-flex px-5 text-sm input-primary-valid bg-white/10 hover:bg-white/15 border-neutral-600 shadow-lg drop-shadow-lg">
+                    <Menu.Button className="inline-flex px-2 sm:px-5 text-sm input-primary-valid bg-white/10 hover:bg-white/15 border-neutral-600 shadow-lg drop-shadow-lg">
                         { title }
                         <ChevronUpDownIcon
                             className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"

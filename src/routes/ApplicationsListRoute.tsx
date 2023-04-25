@@ -1,5 +1,5 @@
 import {defer, useLoaderData} from "react-router-dom";
-import AllApplicationsPage from "../components/homepage/AllApplicationsView";
+import AllApplicationsPage from "../components/applications-list/AllApplicationsView";
 import getApplicationDataByUserid from "../api/get-application-data-by-userid";
 import getCompanyImage from "../api/get-company-image";
 import {SortOptions} from "../constants/sort-constants";

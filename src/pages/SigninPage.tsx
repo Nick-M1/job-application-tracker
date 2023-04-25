@@ -92,7 +92,7 @@ export default function SigninPage() {
                     <div>
                         <button
                             type="submit"
-                            className="btn-primary btn-bouncy group relative flex w-full justify-center py-2 px-4"
+                            className="button-teal group relative w-full py-2"
                         >
                             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                               <ClosedLockIcon className="h-5 w-5 text-blue-900 group-hover:text-blue-300 smooth-transition" aria-hidden="true" />
@@ -108,11 +108,11 @@ export default function SigninPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-x-4">
-                        <button onClick={() => signInProviderHandler('google')} className="btn-primary btn-bouncy flex justify-center items-center bg-blue-500 hover:bg-blue-700 focus:ring-blue-800">
+                        <button onClick={() => signInProviderHandler('google')} className="button-blue">
                             <GoogleIcon className="mr-2 w-5 h-5" />
                             <span className="sr-only">Continue with</span> Google
                         </button>
-                        <button onClick={() => signInProviderHandler('facebook')} className="bg-black hover:bg-gray-700 flex justify-center items-center btn-bouncy btn-primary hover:ring-slate-700 focus:ring-slate-700 border-gray-700">
+                        <button onClick={() => signInProviderHandler('facebook')} className='button-black'>
                             <FacebookIcon className="mr-2 w-6 h-6" />
                             <span className="sr-only">Continue with</span> Facebook
                         </button>

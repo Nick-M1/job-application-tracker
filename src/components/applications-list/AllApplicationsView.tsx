@@ -29,10 +29,10 @@ export default function AllApplicationsPage({ applicationAndCompanyData }: Props
 
     return (
         <div className='px-3 md:px-12'>
-            <div className='flex justify-between py-6 items-center'>
+            <div className='space-y-5 md:flex justify-between pt-6 md:pb-6 items-center'>
                 <h2 className='text-gray-100 text-3xl font-bold font-montserrat-bold'>Your Applications</h2>
-                <Link to='/newapplication' className='btn-primary flex items-center px-4'>
-                    <PlusIcon className='w-5 h-5 mr-2'/> New Application
+                <Link to='/newapplication' className='button-orange px-6 flex items-center'>
+                    <PlusIcon className='w-5 h-5 mr-2'/> NEW APPLICATION
                 </Link>
             </div>
 
