@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/:path(.*)", "destination": "https://en.wikipedia.org/w/:path" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
