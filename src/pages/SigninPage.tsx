@@ -6,16 +6,16 @@ import {LOGO_IMG} from "../constants/assets-constants";
 import FacebookIcon from "../icons/FacebookIcon";
 
 
-async function signInProviderHandler(provider: Provider) {
-    await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-            redirectTo: import.meta.env.VITE_HOSTURL!
-        }
-    })
-}
-
 export default function SigninPage() {
+
+    async function signInProviderHandler(provider: Provider) {
+        await supabase.auth.signInWithOAuth({
+            provider,
+            options: {
+                redirectTo: import.meta.env.VITE_HOSTURL!
+            }
+        })
+    }
 
     return (
         <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-neutral-800 h-screen w-screen">
