@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {Session} from "@supabase/supabase-js";
 import {supabase} from "../supabase_init";
-import {useNavigate} from "react-router-dom";
 
 /* session:
    = Session when signedin
@@ -11,7 +10,6 @@ import {useNavigate} from "react-router-dom";
 
 export default function useAuth() {
     const [session, setSession] = useState<Session | null | undefined>(undefined)
-    const naviagtion = useNavigate()
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -19,14 +17,7 @@ export default function useAuth() {
         })
 
         supabase.auth.onAuthStateChange((_event, session) => {
-            // setSession(session)
-
-            setSession(() => {
-                if (_event === "SIGNED_IN")
-                    naviagtion(0)
-
-                return session
-            })
+            setSession(session)
         })
     }, [])
 

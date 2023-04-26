@@ -26,20 +26,25 @@ export default function Header({ session }: Props) {
                 </NavLink>
                 <NavLink
                     to='/calender'
-                    className={({isActive}) => isActive ? 'text-blue-500' : 'text-white'}
+                    className={({isActive}) => isActive ? 'text-blue-500 hidden lg:block' : 'text-white hidden lg:block'}
                 >
                     CALENDER
                 </NavLink>
-
                 <NavLink
                     to='/templates'
                     className={({isActive}) => isActive ? 'text-blue-500' : 'text-white'}
                 >
                     TEMPLATES
                 </NavLink>
+                <NavLink
+                    to='/todo'
+                    className={({isActive}) => isActive ? 'text-blue-500' : 'text-white'}
+                >
+                    TODOS
+                </NavLink>
             </div>
 
-            <div className='w-64 flex justify-end'>
+            <div className='w-32 lg:w-64 flex justify-end'>
                 <UserprofileDropdown session={session}/>
             </div>
         </header>

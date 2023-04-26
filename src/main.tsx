@@ -7,18 +7,28 @@ import Layout from "./layout/Layout";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route element={<Layout/>} errorElement={<ErrorPage/>}>
-            <Route index lazy={() => import("./routes/HomePageRoute")}/>
+        <Route errorElement={<ErrorPage/>}>
+            <Route path='/signin' lazy={() => import("./routes/SigninRoute")} />
 
-            <Route path='/application' lazy={() => import("./routes/ApplicationsListRoute")}/>
-            <Route path='/application/:application_id' lazy={() => import("./routes/ApplicationSingleRoute")}/>
-            <Route path='/application/:application_id/edit' lazy={() => import("./routes/ApplicationFormEditRoute")}/>
+            <Route element={<Layout/>}>
+                <Route index lazy={() => import("./routes/HomePageRoute")}/>
 
-            <Route path='/newapplication' lazy={() => import("./routes/ApplicationFormNewRoute")}/>
-            <Route path='/company/:companyname' lazy={() => import("./routes/CompanyRoute")}/>
+                <Route path='/application' lazy={() => import("./routes/ApplicationsListRoute")}/>
+                <Route path='/application/:application_id' lazy={() => import("./routes/ApplicationSingleRoute")}/>
+                <Route path='/application/:application_id/edit' lazy={() => import("./routes/ApplicationFormEditRoute")}/>
 
-            <Route path='/templates' lazy={() => import("./routes/TemplatesRoute")}/>
-            <Route path='/calender' lazy={() => import("./routes/CalenderRoute")}/>
+                <Route path='/newapplication' lazy={() => import("./routes/ApplicationFormNewRoute")}/>
+                <Route path='/company/:companyname' lazy={() => import("./routes/CompanyRoute")}/>
+
+                <Route path='/templates' lazy={() => import("./routes/TemplatesRoute")}/>
+                <Route path='/calender' lazy={() => import("./routes/CalenderRoute")}/>
+
+                <Route path='/todo' lazy={() => import('./layout/TodosLayout')}>
+                    <Route path='/todo' lazy={() => import('./components/todo/TodoEmpty')}/>
+                    <Route path='/todo/:categoryid' lazy={() => import("./routes/TodoRoute")}/>
+                </Route>
+            </Route>
+
         </Route>
     )
 )

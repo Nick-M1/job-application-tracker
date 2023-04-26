@@ -60,7 +60,6 @@ export default function OpenaiTemplateRequest({ openaiKey }: Props) {
             return
 
         const prompt = openaiTemplatePromptGenerator(jobtitle, companyname, extradetails, templatetype)
-
         const response = await sendRequest(openaiKey, prompt)//.then(r => r.json())
 
         if (!response.ok) {

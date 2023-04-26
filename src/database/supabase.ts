@@ -49,7 +49,6 @@ export interface Database {
       }
       tblStages: {
         Row: {
-          company_name: string
           details: string
           result: Database["public"]["Enums"]["result"]
           stage_id: string
@@ -58,7 +57,6 @@ export interface Database {
           title: string
         }
         Insert: {
-          company_name?: string
           details: string
           result?: Database["public"]["Enums"]["result"]
           stage_id?: string
@@ -67,7 +65,6 @@ export interface Database {
           title: string
         }
         Update: {
-          company_name?: string
           details?: string
           result?: Database["public"]["Enums"]["result"]
           stage_id?: string
@@ -76,12 +73,93 @@ export interface Database {
           title?: string
         }
       }
+      tblTodoCategory: {
+        Row: {
+          id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          title?: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          user_id?: string
+        }
+      }
+      tblTodoItem: {
+        Row: {
+          category_id: string
+          created_at: string | null
+          id: string
+          is_completed: boolean
+          text: string
+          user_id: string
+        }
+        Insert: {
+          category_id: string
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean
+          text?: string
+          user_id: string
+        }
+        Update: {
+          category_id?: string
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean
+          text?: string
+          user_id?: string
+        }
+      }
+      tblTodoSubitem: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_completed: boolean
+          text: string
+          todoitem_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean
+          text?: string
+          todoitem_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_completed?: boolean
+          text?: string
+          todoitem_id?: string
+          user_id?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_todo_items_and_subitems: {
+        Args: {
+          query_category_id: string
+        }
+        Returns: {
+          todo_item_id: string
+          todo_item_text: string
+          todo_item_is_completed: boolean
+          todo_subitem_id: string
+          todo_subitem_text: string
+          todo_subitem_is_completed: boolean
+        }[]
+      }
     }
     Enums: {
       result: "waiting" | "success" | "rejection"

@@ -34,6 +34,7 @@ export default function UserprofileDropdown({ session }: Props) {
         { isButton: false, name: "My Applications",  to: `/application`,  icon: HomeIcon },
         { isButton: false, name: "Calender",  to: `/calender`,      icon: CalenderIcon },
         { isButton: false, name: "Templates",  to: `/templates`,    icon: DocumentTextIcon },
+        { isButton: false, name: "Todos",  to: `/todo`,    icon: DocumentTextIcon },
         { isButton: true,  name: "Logout", func: () => setLogoutPopup(true),  icon: ArrowRightOnRectangleIcon },
     ];
 
