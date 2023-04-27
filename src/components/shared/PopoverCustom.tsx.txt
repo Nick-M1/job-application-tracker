@@ -1,0 +1,106 @@
+import {Dispatch, Fragment, ReactNode, SetStateAction} from "react";
+import {Dialog, Transition} from "@headlessui/react";
+import EllipsisVerticalIcon from "../../icons/EllipsisVerticalIcon";
+
+type Props = {
+    showModal: boolean
+    closeShowModal: () => void
+    children: ReactNode
+}
+
+export default function PopoverCustom({ showModal, closeShowModal, children }: Props) {
+    return (
+        <Transition appear show={showModal} as={Fragment}>
+            <Dialog
+                as="div"
+                className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 backdrop-blur-sm"
+                onClose={closeShowModal}
+            >
+                <div className="min-h-screen-withmobile px-4 text-center">
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <Dialog.Overlay className="fixed inset-0" />
+                    </Transition.Child>
+
+                    <span
+                        className="inline-block h-screen-withmobile align-middle"
+                        aria-hidden="true"
+                    >
+                          &#8203;
+                        </span>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                    >
+                        <div className="inline-block w-full max-w-xl py-6 px-8 my-8 text-left align-middle transition-all transform bg-neutral-800 border border-neutral-700 shadow-xl rounded-xl">
+                            <Dialog.Title
+                                as="h3"
+                                className="pb-3 text-2xl leading-6 text-white border-b border-gray-700 text-center"
+                            >
+                                Start a new chat
+                                <div onClick={closeShowModal} className='absolute p-1 right-6 top-5 bg-neutral-700/75 hover:bg-neutral-700 active:bg-neutral-600/95 rounded-full cursor-pointer smooth-transition'>
+                                    <EllipsisVerticalIcon className='w-6 h-6'/>
+                                </div>
+                            </Dialog.Title>
+
+                            { children }
+
+                            {/*<div className='pt-3 pb-6'>*/}
+                            {/*    <h1 className='text-lg leading-6 font-medium text-gray-300'>*/}
+                            {/*        Chat Title*/}
+                            {/*    </h1>*/}
+                            {/*    <input*/}
+                            {/*        type="text"*/}
+                            {/*        name="title"*/}
+                            {/*        id="title"*/}
+                            {/*        className={`block input-primary ${newChatFormInvalid && checkNewChatTitle(newChatTitle.length) && 'input-primary-invalid' }`}*/}
+                            {/*        placeholder="Write a title for your recipe..."*/}
+                            {/*        defaultValue={newChatTitle}*/}
+                            {/*        onChange={(e) => setNewChatTitle(e.target.value)}*/}
+                            {/*    />*/}
+                            {/*    <p className={newChatFormInvalid && checkNewChatTitle(newChatTitle.length) ? 'text-red-600 text-sm tracking-wide italic mt-0.5' : 'hidden'}>Title must have between 3 and 21 characters</p>*/}
+                            {/*</div>*/}
+
+                            {/*<div>*/}
+                            {/*    <h1 className='text-lg leading-6 font-medium text-gray-300 mb-1'>*/}
+                            {/*        Select Contacts*/}
+                            {/*    </h1>*/}
+                            {/*    <div className='flex space-x-4'>*/}
+                            {/*        <AutocompleteSelector*/}
+                            {/*            selectedUsers={selectedUsers} setSelectedUsers={setSelectedUsers}*/}
+                            {/*            newChatFormvalue={newChatFormvalue} setNewChatFormvalue={setNewChatFormvalue}*/}
+                            {/*            newChatAutocomplete={newChatAutocomplete}*/}
+                            {/*            newChatFormInvalid={newChatFormInvalid}*/}
+                            {/*        />*/}
+                            {/*        /!* todo: put input css into index.css *!/*/}
+                            {/*        <div className="mt-0.5">*/}
+                            {/*            <button*/}
+                            {/*                type="button"*/}
+                            {/*                className="inline-flex min-w-[135px] btn-secondary"*/}
+                            {/*                onClick={() => newChatHandler()}*/}
+                            {/*            >*/}
+                            {/*                Start new chat!*/}
+                            {/*            </button>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*    <p className={newChatFormInvalid && selectedUsers.length == 0 ? 'text-red-600 text-sm tracking-wide italic mt-1' : 'hidden'}>Must add at least 1 other person to the chat</p>*/}
+                            {/*</div>*/}
+                        </div>
+                    </Transition.Child>
+                </div>
+            </Dialog>
+        </Transition>
+    )
+}

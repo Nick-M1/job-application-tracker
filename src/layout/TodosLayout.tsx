@@ -52,7 +52,7 @@ export function Component() {
                 </svg>
             </button>
 
-            <aside className={`fixed top-12 left-0 z-20 w-full md:w-80 bottom-0 transition-transform   ${showSidebar || !isMobile ? "translate-x-0" : '-translate-x-full'}`}>
+            <aside className={`fixed top-12 left-0 z-20 w-full md:w-80 bottom-0 transition-transform ${showSidebar || !isMobile ? "translate-x-0" : '-translate-x-full'}`}>
                 <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-800 border-t border-r text-neutral-200 border-neutral-500 flex flex-col justify-between">
                     <ul className="space-y-2 font-medium">
                         { allCategories?.data?.map(category => (
@@ -67,7 +67,7 @@ export function Component() {
                     { showAddCategoryInput ? (
                         <form onSubmit={handleAddNewTodoCategory} className='flex space-x-2'>
                             <input name='categoryTitle' type='text' placeholder='New Category Title...' className='input-primary-valid'/>
-                            <button className='button-pink rounded-xl px-3 mt-1.5'>ADD</button>
+                            <button className='button-pink rounded-lg px-3 mt-1 py-1'>ADD</button>
                         </form>
                     ) : (
                         <button onClick={() => setShowAddNewCategoryInput(true)} className="flex items-center p-2 rounded-lg text-white hover:bg-neutral-700 smooth-transition">
@@ -79,7 +79,7 @@ export function Component() {
             </aside>
 
             <div className="p-4 md:ml-80">
-                <Outlet/>
+                <Outlet context={{ session }}/>
             </div>
         </div>
     )
