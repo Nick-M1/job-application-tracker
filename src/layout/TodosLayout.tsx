@@ -43,7 +43,7 @@ export function Component() {
     }
 
     return (
-        <div className='relative'>
+        <div className='relative h-full min-h-[91dvh]'>
             <button onClick={() => setShowsidebar(true)} type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-white/75 hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-200 smooth-transition">
                 <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +52,8 @@ export function Component() {
                 </svg>
             </button>
 
-            <aside className={`fixed top-12 left-0 z-20 w-full md:w-80 bottom-0 transition-transform ${showSidebar || !isMobile ? "translate-x-0" : '-translate-x-full'}`}>
-                <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-800 border-t border-r text-neutral-200 border-neutral-500 flex flex-col justify-between">
+            <aside className={`absolute top-0 left-0 z-20 w-full md:w-80 bottom-0 transition-transform scrollbar ${showSidebar || !isMobile ? "translate-x-0" : '-translate-x-full'}`}>
+                <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-800 border-t border-r text-neutral-200 border-neutral-500 flex flex-col justify-start space-y-6">
                     <ul className="space-y-2 font-medium">
                         { allCategories?.data?.map(category => (
                             <li key={category.id}>

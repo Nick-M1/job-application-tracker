@@ -1,7 +1,7 @@
 import {supabase} from "../supabase_init";
 import {useLoaderData} from "react-router-dom";
 import CheckboxComponent from "../components/shared/CheckboxComponent";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import EllipsisVerticalIcon from "../icons/EllipsisVerticalIcon";
 import {useSession} from "../layout/Layout";
 import PlusIcon from "../icons/PlusIcon";
@@ -46,9 +46,12 @@ export function Component() {
     const { category_id, category, todos: initalTodos } = useLoaderData() as Awaited<ReturnType<typeof loader>>
     const [todos, setTodos] = useState(groupByTodoItem(initalTodos))
 
+    useEffect(() => {
+        setTodos(groupByTodoItem(initalTodos))
+    }, [initalTodos])
+
     const [showAddNewTodoItem, setShowNewTodoItem] = useState(false)
     const [showAddNewTodoSubitem, setShowNewTodoSubitem] = useState<string | null>(null)
-
 
     async function todoOnClick(todoid: string, isHeading: boolean, isCompleted: boolean, headingTodoId?: string) {
         const { data, error } = await supabase.from(isHeading ? 'tblTodoItem' : 'tblTodoSubitem')
